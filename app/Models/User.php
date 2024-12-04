@@ -42,4 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function peticiones(){
+        return $this->HasMany('App\Models\Peticione');
+    }
+    public function firmas()
+    {
+        return $this->belongsToMany('App\Models\Peticione', 'peticione_user');
+    }
 }
