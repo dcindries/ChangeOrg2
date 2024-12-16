@@ -25,7 +25,13 @@
                                 <p><strong>Estado:</strong> {{ ucfirst($peticion->estado) }}</p>
                             </div>
                             <div class="card-footer d-flex justify-content-between">
+                                <!-- Botón Ver -->
                                 <a href="{{ route('peticiones.show', $peticion->id) }}" class="btn btn-outline-primary btn-sm">Ver más</a>
+
+                                <!-- Botón Editar -->
+                                <a href="{{ route('peticiones.edit', $peticion->id) }}" class="btn btn-outline-success btn-sm">Editar</a>
+
+                                <!-- Botón Eliminar -->
                                 <form action="{{ route('peticiones.delete', $peticion->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta petición?')">
                                     @csrf
                                     @method('DELETE')
